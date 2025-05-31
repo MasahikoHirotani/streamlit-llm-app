@@ -1,15 +1,6 @@
-from dotenv import load_dotenv
 import os
-
-# .envファイルを読み込む
-load_dotenv()
-
-# APIキーを取得して表示
-api_key = os.getenv("OPENAI_API_KEY")
-print(f"読み込んだAPIキー：{api_key}")
+from dotenv import load_dotenv
 import streamlit as st
-from dotenv import load_dotenv
-import os
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage
 
@@ -20,7 +11,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 # LLM初期化
 chat = ChatOpenAI(openai_api_key=api_key, model_name="gpt-3.5-turbo")
 
-# 専門家の設定（自由に変えてOK）
+# 専門家の設定
 roles = {
     "医療の専門家": "あなたは信頼できる医療の専門家です。やさしく丁寧にアドバイスをしてください。",
     "キャリアの専門家": "あなたは経験豊富なキャリアコンサルタントです。親身な提案をしてください。"
